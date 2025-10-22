@@ -1,0 +1,58 @@
+===========================================
+  HOW TO UPGRADE YOUR ACCOUNT (TEST MODE)
+===========================================
+
+STEP 1: Look at the TOP of the upgrade modal
+        You should see a checkbox that says:
+        "☐ Test Mode (Skip Stripe - Dev Only)"
+
+STEP 2: CHECK that checkbox
+        This enables test mode
+
+STEP 3: Pick a tier (PRO is recommended)
+        - Standard: $9.99/mo - 100 queries
+        - Pro: $29.99/mo - 500 queries + All 6 AIs  ⭐ BEST
+        - Enterprise: $99.99/mo - Unlimited
+
+STEP 4: Click the upgrade button
+        It will say "Test Upgrade to Pro" (or whichever you chose)
+
+STEP 5: Wait for the success message
+        You'll see: "✅ Successfully upgraded to pro tier! (Test Mode)"
+
+STEP 6: Page will refresh automatically
+        Your account now has full access!
+
+===========================================
+
+TROUBLESHOOTING:
+
+❌ Can't see Test Mode checkbox?
+   → Scroll to the TOP of the modal
+
+❌ Button says "Current Plan"?
+   → You're already on that tier! Try a higher one
+
+❌ Nothing happens when you click?
+   → Open browser console (F12) and check for errors
+
+❌ Still have limited access after upgrade?
+   → Refresh the page (F5) or log out and back in
+
+===========================================
+
+ALTERNATIVE: Use this command in a new terminal:
+
+1. Get your token from browser console:
+   localStorage.getItem('crowdai_access_token')
+
+2. Run this command (replace YOUR_TOKEN):
+
+curl -X POST http://localhost:3001/api/payments/manual-upgrade ^
+  -H "Content-Type: application/json" ^
+  -H "Authorization: Bearer YOUR_TOKEN" ^
+  -d "{\"tier\":\"pro\",\"billingCycle\":\"monthly\"}"
+
+3. Refresh the page
+
+===========================================
