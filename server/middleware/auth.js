@@ -54,10 +54,10 @@ export const authenticate = async (req, res, next) => {
       });
     }
 
-    // Verify token
+    // Verify token with correct type (access token)
     let decoded;
     try {
-      decoded = verifyToken(token);
+      decoded = verifyToken(token, 'access');
     } catch (error) {
       return res.status(401).json({
         success: false,

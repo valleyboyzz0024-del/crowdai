@@ -207,7 +207,7 @@ userSchema.methods.getTierLimits = function() {
   const limits = {
     free: {
       queriesPerDay: 10,  // Reduced from 25 to 10
-      allowedAIs: ['gemini', 'llama', 'deepseek'],  // Only cheap AIs (cost: $0.0037/query)
+      allowedAIs: ['claude', 'gemini'],  // Match client-side: Claude + Gemini for free
       fileUploads: false,
       imageGeneration: false,
       videoGeneration: false,
@@ -221,8 +221,8 @@ userSchema.methods.getTierLimits = function() {
       }
     },
     standard: {
-      queriesPerDay: 50,  // New tier - cheap AIs + Grok
-      allowedAIs: ['gemini', 'llama', 'deepseek', 'grok'],  // No premium AIs
+      queriesPerDay: 50,  // New tier - cheap AIs + Grok + Groq
+      allowedAIs: ['claude', 'chatgpt', 'gemini', 'groq'],  // Match client-side: add Groq, include ChatGPT
       fileUploads: false,
       imageGeneration: true,
       videoGeneration: false,
